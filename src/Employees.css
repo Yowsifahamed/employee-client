@@ -1,287 +1,338 @@
-.employee-container {
-  background: #ffffff;
-  padding: 20px;
-  border-radius: 8px;
-  font-family: Arial, sans-serif;
+@import "primeicons/primeicons.css";
+
+:root {
+  --primary: #3b82f6;
+  --secondary: #64748b;
+  --success: #22c55e;
+  --info: #06b6d4;
+  --danger: #ef4444;
+  --border: #dfe7ef;
 }
 
-.employee-container h2 {
-  margin-bottom: 16px;
-  font-size: 18px;
+/* Container & Card */
+.p-container { padding: 2.5rem; background: #f8f9fa; min-height: 100vh; font-family: 'Inter', sans-serif; }
+.p-card { background: #fff; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); overflow: hidden; }
+
+/* Header & Action Bar */
+.p-header-section { padding: 1.5rem 2rem; display: flex; justify-content: space-between; align-items: center; }
+.p-header-btns { display: flex; gap: 0.75rem; }
+.p-action-bar { padding: 1rem 2rem; display: flex; gap: 1rem; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); background: #fdfdfd; }
+.p-dropdown { padding: 0.75rem; border: 1px solid var(--border); border-radius: 6px; width: 250px; outline: none; }
+.p-flex-btn { flex-grow: 1; max-width: 250px; }
+
+/* Standard Buttons */
+.p-button { padding: 0.75rem 1.25rem; border-radius: 6px; border: 1px solid transparent; cursor: pointer; font-weight: 600; font-size: 0.875rem; transition: 0.2s; }
+.p-button-primary { background: var(--primary); color: white; }
+.p-button-primary:hover { background: #2563eb;     color: #fff;}
+.p-button-success { background: var(--success); color: white; }
+.p-button-info { background: #0D9488; color: white;     margin-right: 8px;
+    position: relative;
+    top: 1px; }
+.p-button-secondary { background: white; border: 1px solid #cbd5e1; color: var(--secondary); }
+.p-button-secondary-flat { background: transparent; color: var(--secondary); border: none; }
+.p-button-secondary-flat:hover { background: #f1f5f9; }
+
+/* Table Full Width */
+.p-datatable-container { width: 100%; overflow-x: auto; }
+.p-datatable { width: 100%; border-collapse: collapse; }
+.p-datatable th { background: #f8f9fa; padding: 1.25rem 2rem; text-align: left; font-size: 0.75rem; text-transform: uppercase; border-bottom: 2px solid var(--border); color: #475569; }
+.p-datatable td { padding: 1.25rem 2rem; border-bottom: 1px solid var(--border); }
+.p-text-bold { font-weight: 600; color: #1e293b; }
+
+/* DIALOG FIXES */
+.p-dialog-mask {
+  position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(0,0,0,0.4); display: flex; justify-content: center; align-items: center;
+  backdrop-filter: blur(2px); z-index: 2000;
 }
 
-.employee-table {
-  width: 100%;
-  border-collapse: collapse;
+.p-dialog {
+  background: white; border-radius: 8px; width: 100%; max-width: 450px;
+  box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1); display: flex; flex-direction: column;
 }
 
-.employee-table thead th {
-  text-align: left;
-  font-size: 12px;
-  color: #6b7280;
-  padding: 12px;
-  border-bottom: 1px solid #e5e7eb;
+.p-dialog-header {
+  padding: 1.25rem 1.5rem; display: flex; justify-content: space-between; align-items: center;
+  border-bottom: 1px solid var(--border);
 }
 
-.employee-table tbody td {
-  padding: 12px;
-  border-bottom: 1px solid #f1f5f9;
+.p-dialog-title { font-size: 1.2rem; font-weight: 700; color: #1e293b; }
+
+.p-dialog-close {
+  border: none; background: #f1f5f9; width: 28px; height: 28px; border-radius: 50%;
+  cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 1.2rem;
+  color: black;
+}
+
+.p-dialog-content { padding: 1.5rem; display: flex; flex-direction: column; gap: 1.25rem; }
+
+.p-field { display: flex; flex-direction: column; gap: 0.5rem; }
+.p-label { font-weight: 600; font-size: 0.875rem; color: #475569; text-align: left; }
+.p-inputtext { width: 100%; padding: 0.75rem; border: 1px solid var(--border); border-radius: 6px; box-sizing: border-box; }
+
+.p-field-checkbox { display: flex; align-items: center; gap: 0.75rem; margin-top: 0.25rem; }
+.p-field-checkbox input { width: 18px; height: 18px; cursor: pointer; }
+.p-checkbox-label { font-size: 0.9rem; color: #334155; cursor: pointer; }
+
+.p-dialog-footer {
+  padding: 1rem 1.5rem; border-top: 1px solid var(--border);
+  display: flex; justify-content: flex-end; gap: 0.5rem; /* Side-by-side buttons */
+}
+
+/* Tags & Inline Buttons */
+.p-tag { padding: 0.25rem 0.75rem; border-radius: 100px; font-size: 0.65rem; font-weight: 800; }
+.p-tag-success { background: #dcfce7; color: #166534; }
+.p-tag-danger { background: #fee2e2; color: #991b1b; }
+.p-action-buttons { display: flex; gap: 0.5rem; justify-content: center; }
+.p-btn-edit { color: var(--primary); border: 1px solid var(--primary); background: transparent; padding: 4px 10px; border-radius: 4px; cursor: pointer; }
+.p-btn-delete { color: var(--danger); border: 1px solid var(--danger); background: transparent; padding: 4px 10px; border-radius: 4px; cursor: pointer; }
+.p-btn-delete:hover { background: var(--danger); color: white; }
+.p-btn-edit:hover { background: var(--primary); color: white; }
+.envolope-icon {
+    position: relative;
+    top: 1px;
+    right: 8px;
+}
+
+
+/* Container for the Email Window */
+.email-compose-container {
+    background: white;
+    width: 600px;
+    height: 450px;
+    border-radius: 8px 8px 0 0;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.3);
+    position: relative;
+    overflow: hidden;
+    animation: slideUp 0.3s ease-out;
+}
+
+@keyframes slideUp {
+    from { transform: translateY(100px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+/* Header bar */
+.email-header {
+    background: #404040;
+    color: white;
+    padding: 10px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.icon-btn-small {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+/* Rows for To and Subject */
+.email-row {
+    display: flex;
+    align-items: center;
+    padding: 8px 15px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.email-label {
+    color: #777;
+    width: 40px;
+    font-size: 14px;
+}
+
+.email-recipient-chip {
+    background: #e8e8e8;
+    padding: 2px 10px;
+    border-radius: 15px;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.chip-close { cursor: pointer; color: #999; }
+
+.email-subject-input {
+    border: none;
+    width: 100%;
+    outline: none;
+    font-size: 15px;
+    padding: 5px 0;
+    margin-bottom: 0px;
+}
+
+/* Main Text Area */
+.email-body-wrapper {
+    flex-grow: 1;
+    display: flex;
+}
+
+.email-textarea {
+    width: 100%;
+    border: none;
+    resize: none;
+    padding: 15px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 15px;
+    outline: none;
+    line-height: 1.5;
+    height: 220px;
+}
+
+/* Desktop Footer Toolbar */
+.email-footer {
+    padding: 12px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: white;
+    position: absolute;
+    bottom: 0px;
+}
+
+.footer-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.email-send-btn {
+    background: #1a73e8;
+    color: white;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 4px;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.email-send-btn:hover { background: #1557b0; }
+
+.toolbar-divider {
+    width: 1px;
+    height: 24px;
+    background: #ddd;
+    margin: 0 5px;
+}
+
+.email-tools {
+    display: flex;
+    gap: 5px;
+}
+
+.tool-icon {
+    background: none;
+    border: none;
+    padding: 8px;
+    color: #5f6368;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.tool-icon:hover {
+    background: #f1f3f4;
+    color: #202124;
+}
+
+/* PrimeNG Toast Container */
+.p-toast-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 9999;
+}
+
+/* PrimeNG Toast */
+.p-toast {
+  margin-bottom: 1rem;
+  animation: slideIn 0.3s ease-in-out;
+}
+
+.p-toast-success {
+  background: #f0fdf4;
+  border: 1px solid #86efac;
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.p-toast-content {
+  display: flex;
+  align-items: flex-start;
+  padding: 16px 20px;
+  gap: 12px;
+}
+
+.p-toast-icon-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  background: #22c55e;
+  border-radius: 50%;
+  flex-shrink: 0;
+  color: white;
   font-size: 14px;
 }
 
-.employee-table tbody tr:hover {
-  background-color: #f9fafb;
-}
-
-.status {
-  padding: 4px 10px;
-  border-radius: 12px;
-  font-size: 12px;
-  font-weight: 600;
-}
-
-.status.active {
-  background-color: #e6f7f0;
-  color: #059669;
-}
-
-.status.inactive {
-  background-color: #fee2e2;
-  color: #dc2626;
-}
-
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 16px;
-}
-
-.logout-btn {
-  background: #dc2626;
-  color: white;
-  border: none;
-  padding: 6px 14px;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 13px;
-}
-
-.logout-btn:hover {
-  background: #b91c1c;
-}
-
-.email-btn {
-  background: #2563eb;
-  color: white;
-  border: none;
-  padding: 6px 10px;
-  border-radius: 6px;
-  font-size: 12px;
-  cursor: pointer;
-}
-
-.email-btn:hover {
-  background: #1d4ed8;
-}
-
-.email-actions {
-  display: flex;
-  gap: 10px;
-  margin-bottom: 14px;
-}
-
-.email-actions select {
-  padding: 6px 10px;
-  border-radius: 6px;
-  border: 1px solid #d1d5db;
-}
-
-.email-actions button {
-  background: #2563eb;
-  color: white;
-  border: none;
-  padding: 6px 14px;
-  border-radius: 6px;
-  cursor: pointer;
-}
-
-/* Dialog Modal Styles */
-.dialog-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.5);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 1000;
-}
-
-.dialog-content {
-  background: white;
-  border-radius: 8px;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
-  width: 90%;
-  max-width: 500px;
-  overflow: hidden;
-}
-
-.dialog-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px;
-  border-bottom: 1px solid #e5e7eb;
-}
-
-.dialog-header h3 {
-  margin: 0;
-  font-size: 18px;
-  color: #1f2937;
-}
-
-.close-btn {
-  background: none;
-  border: none;
-  font-size: 24px;
-  color: #6b7280;
-  cursor: pointer;
-  padding: 0;
-  width: 30px;
-  height: 30px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 4px;
-  transition: background 0.2s;
-}
-
-.close-btn:hover {
-  background: #f3f4f6;
-  color: #1f2937;
-}
-
-.dialog-form {
-  padding: 20px;
+.p-toast-message {
+  flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 4px;
 }
 
-.dialog-form input {
-  padding: 10px;
-  border: 1px solid #d1d5db;
-  border-radius: 6px;
-  font-size: 14px;
+.p-toast-summary {
+  color: #166534;
+  font-weight: 600;
+  font-size: 0.9rem;
 }
 
-.dialog-form input:focus {
-  outline: none;
-  border-color: #2563eb;
-  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
-}
-
-.checkbox {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 8px 0;
-}
-
-.checkbox input {
+.p-toast-detail {
+  color: #4b5563;
+  font-size: 0.85rem;
   margin: 0;
+  line-height: 1.4;
+}
+
+.p-toast-close {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: #9ca3af;
+  font-size: 18px;
   padding: 0;
-  width: 18px;
-  height: 18px;
-  cursor: pointer;
-}
-
-.dialog-footer {
-  padding: 20px;
-  border-top: 1px solid #e5e7eb;
-  display: flex;
-  justify-content: flex-end;
-  gap: 10px;
-}
-
-.cancel-btn {
-  background: #e5e7eb;
-  color: #374151;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 14px;
-  font-weight: 500;
-}
-
-.cancel-btn:hover {
-  background: #d1d5db;
-}
-
-.submit-btn {
-  background: #2563eb;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 14px;
-  font-weight: 500;
-}
-
-.submit-btn:hover {
-  background: #1d4ed8;
-}
-
-.add-btn {
-  background: #10b981;
-  color: white;
-  border: none;
-  padding: 6px 14px;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 13px;
-  margin-right: 8px;
-}
-
-.add-btn:hover {
-  background: #059669;
-}
-
-.header div {
+  margin-left: auto;
+  flex-shrink: 0;
   display: flex;
   align-items: center;
+  justify-content: center;
+  transition: color 0.2s;
 }
 
-.form {
-  display: flex;
-  gap: 10px;
-  margin-bottom: 20px;
+.p-toast-close:hover {
+  color: #6b7280;
 }
 
-.form input {
-  padding: 6px;
-}
-
-.form button {
-  background: #2563eb;
-  color: white;
-  border: none;
-  padding: 6px 12px;
-  border-radius: 6px;
-}
-
-.employee-table button {
-  margin-right: 6px;
-  padding: 4px 8px;
-}
-
-.employee-table .danger {
-  background: #dc2626;
-  color: white;
-  border: none;
+/* Toast Animation */
+@keyframes slideIn {
+  from {
+    transform: translateX(400px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
 }
